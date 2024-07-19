@@ -9,4 +9,7 @@
   <ItemGroup>
     <Compile Include="../src/Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="PDFsharp" Version="6.1.1" />
+  </ItemGroup>
 </Project>
