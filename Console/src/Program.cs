@@ -13,6 +13,9 @@ namespace HelloWorld
         /// <param name="args">パラメータ</param>
         static void Main(string[] args)
         {
+            // フォントリゾルバーのグローバル登録
+            PdfSharp.Fonts.GlobalFontSettings.FontResolver = new JapaneseFontResolver();
+
             // Create a new PDF document.
             var document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
@@ -36,10 +39,10 @@ namespace HelloWorld
             gfx.DrawEllipse(new XPen(XColors.Red, 1.5), XBrushes.White, new XRect(width / 2 - r, height / 2 - r, 2 * r, 2 * r));
 
             // Create a font.
-            var font = new XFont("Verdana", 20, XFontStyleEx.BoldItalic);
+            var font = new XFont("Gen Shin Gothic", 20, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
 
             // Draw the text.
-            gfx.DrawString("Hello, PDFsharp!", font, XBrushes.Black,
+            gfx.DrawString("こんにちわ, PDFsharp!", font, XBrushes.Black,
                 new XRect(0, 0, width, height), XStringFormats.Center);
     
             // Save the document...
