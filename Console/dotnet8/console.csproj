@@ -11,5 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="PDFsharp" Version="6.1.1" />
+    <Compile Include="../src/JapaneseFontResolver.cs" />
+    <EmbeddedResource Include="../../assets/GenShinGothic-Monospace-Medium.ttf" />  
   </ItemGroup>
 </Project>
