@@ -14,3 +14,6 @@ PDFSharpを利用した試作
 **ライセンスの詳細は[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt)を参照。**
 * [PDFSharp](https://www.nuget.org/packages/PDFsharp)  
   [MIT License](https://docs.pdfsharp.net/General/License.html)
+
+* [源真ゴシックフォント](http://jikasei.me/font/genshin/)  
+  [SIL Open Font License 1.1](http://jikasei.me/info/license.html)
