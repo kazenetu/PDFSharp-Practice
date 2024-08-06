@@ -13,5 +13,6 @@
     <Content Include="../src/**/*.*" Exsulution="../src/**/*.cs">
       <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Content>
+    <EmbeddedResource Include="../../assets/GenShinGothic-Monospace-Medium.ttf" />  
   </ItemGroup>
 </Project>
