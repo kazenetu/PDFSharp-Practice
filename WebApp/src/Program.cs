@@ -1,4 +1,10 @@
+using PdfSharp.Pdf;
+using webapp.Utils;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// フォントリゾルバーのグローバル登録
+PdfSharp.Fonts.GlobalFontSettings.FontResolver = new JapaneseFontResolver();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
