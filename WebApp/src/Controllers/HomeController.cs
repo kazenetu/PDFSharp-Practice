@@ -59,10 +59,10 @@ public class HomeController : Controller
             gfx.DrawEllipse(new XPen(XColors.Red, 1.5), XBrushes.White, new XRect(width / 2 - r, height / 2 - r, 2 * r, 2 * r));
 
             // Create a font.
-            var font = new XFont("Verdana", 20, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
+            var font = new XFont("Gen Shin Gothic", 20, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
 
             // Draw the text.
-            gfx.DrawString("Hellow, PDFsharp!", font, XBrushes.Black,
+            gfx.DrawString("こんにちわ, PDFsharp!", font, XBrushes.Black,
                 new XRect(0, 0, width, height), XStringFormats.Center);
     
             using (MemoryStream ms = new MemoryStream())
