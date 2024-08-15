@@ -1,5 +1,6 @@
 using PdfSharp.Pdf;
 using webapp.Utils;
+using Microsoft.AspNetCore.StaticFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
-app.UseStaticFiles();
+
+var provider = new FileExtensionContentTypeProvider();
+provider.Mappings[".ftl"] = "text/plain";
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = provider
+});
 
 app.UseRouting();
 
