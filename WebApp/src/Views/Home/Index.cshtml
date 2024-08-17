@@ -6,6 +6,10 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<form action="/Home/GetPDF" method="post">
-    <input type="submit" value="PDFダウンロード" />
-</form>
+
+<script>
+function pdfDownLoad() {
+    window.open("/lib/pdfjs/web/viewer.html?file=/Home/GetPdf", "_blank", "popup");
+}
+</script>
+<input onclick="pdfDownLoad();" type="button" value="PDFダウンロード" />
