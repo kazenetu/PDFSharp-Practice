@@ -834,7 +834,7 @@ const defaultOptions = {
 };
 {
   defaultOptions.defaultUrl = {
-    value: "/Home/GetPDF",
+    value: "",
     kind: OptionKind.VIEWER
   };
   defaultOptions.sandboxBundleSrc = {
