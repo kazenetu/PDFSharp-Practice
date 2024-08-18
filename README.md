@@ -25,3 +25,6 @@ PDFSharpを利用した試作
 
 * [源真ゴシックフォント](http://jikasei.me/font/genshin/)  
   [SIL Open Font License 1.1](http://jikasei.me/info/license.html)
+
+* [PDF.js](https://mozilla.github.io/pdf.js/)  
+  [Apache 2.0,](https://github.com/mozilla/pdf.js/blob/master/LICENSE)
