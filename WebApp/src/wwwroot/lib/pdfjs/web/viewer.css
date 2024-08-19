@@ -4368,3 +4368,7 @@ dialog :link{
     display:none;
   }
 }
+
+#secondaryOpenFile {
+  display: none !important;
+}
