@@ -4369,6 +4369,9 @@ dialog :link{
   }
 }
 
+#editorFreeText,
+#editorInk,
+#editorStamp,
 #secondaryOpenFile {
   display: none !important;
 }
