@@ -49,7 +49,7 @@ namespace HelloWorld
             rect.Height -= 5;
             rect.Width -= 5;
             var tf = new XTextFormatter(gfx);
-            tf.DrawString("こんにちわ。 PDFsharp!", font, XBrushes.Black, rect, XStringFormats.TopLeft);
+            tf.DrawString("こんにちわ。\nPDFsharp!", font, XBrushes.Black, rect, XStringFormats.TopLeft);
     
             // Save the document...
             var fullName = PdfFileUtility.GetTempPdfFullFileName($"HelloWorld_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
