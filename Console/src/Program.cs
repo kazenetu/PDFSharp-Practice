@@ -1,6 +1,7 @@
 ﻿using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Quality;
+using PdfSharp.Drawing.Layout;
 
 namespace HelloWorld
 {
@@ -28,22 +29,27 @@ namespace HelloWorld
             // Get an XGraphics object for drawing on this page.
             var gfx = XGraphics.FromPdfPage(page);
 
-            // Draw two lines with a red default pen.
-            var width = page.Width.Point;
-            var height = page.Height.Point;
-            gfx.DrawLine(XPens.Red, 0, 0, width, height);
-            gfx.DrawLine(XPens.Red, width, 0, 0, height);
-
-            // Draw a circle with a red pen which is 1.5 point thick.
-            var r = width / 5;
-            gfx.DrawEllipse(new XPen(XColors.Red, 1.5), XBrushes.White, new XRect(width / 2 - r, height / 2 - r, 2 * r, 2 * r));
-
-            // Create a font.
+            // 日本語フォント設定
             var font = new XFont("Gen Shin Gothic", 20, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
 
-            // Draw the text.
-            gfx.DrawString("こんにちわ, PDFsharp!", font, XBrushes.Black,
-                new XRect(0, 0, width, height), XStringFormats.Center);
+            // 枠線設定
+            var pen = new XPen(XColors.Black, 3);
+
+            // 矩形設定
+            var width = page.Width.Point;
+            var height = page.Height.Point;
+            var rect = new XRect(100,100,150,100);
+
+            // 矩形描画
+            gfx.DrawRectangle(pen, rect);
+
+            // 文字描画
+            rect.X += 5;
+            rect.Y += 5;
+            rect.Height -= 5;
+            rect.Width -= 5;
+            var tf = new XTextFormatter(gfx);
+            tf.DrawString("こんにちわ。\nPDFsharp!", font, XBrushes.Black, rect, XStringFormats.TopLeft);
     
             // Save the document...
             var fullName = PdfFileUtility.GetTempPdfFullFileName($"HelloWorld_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
