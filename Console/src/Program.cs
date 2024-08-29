@@ -50,7 +50,19 @@ namespace HelloWorld
             rect.Width -= 5;
             var tf = new XTextFormatter(gfx);
             tf.DrawString("こんにちわ。\nPDFsharp!", font, XBrushes.Black, rect, XStringFormats.TopLeft);
-    
+
+            // 表形式描画確認
+            var singlePen = new XPen(XColors.Gray, 1);
+            for(int row=0; row<3; row++)
+            {
+                for(int col=0; col<3; col++)
+                {
+                    // 矩形描画
+                    gfx.DrawRectangle(singlePen, new XRect(10+col*80,250+row*40,80,40));
+                }
+            }
+
+
             // Save the document...
             var fullName = PdfFileUtility.GetTempPdfFullFileName($"HelloWorld_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
             document.Save(fullName);
