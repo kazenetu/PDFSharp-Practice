@@ -70,6 +70,7 @@ namespace HelloWorld
                         // データ
                         gfx.DrawRectangle(singlePen, gridRect);
                         tf.DrawString($"データ{row},{col}", gridFont, XBrushes.Black, gridRect, XStringFormats.TopLeft);
+                    }
                 }
             }
 
