@@ -53,6 +53,7 @@ namespace HelloWorld
 
             // 表形式描画確認
             var singlePen = new XPen(XColors.Gray, 1);
+            var headerBrush = XBrushes.Blue;
             for(int row=0; row<3; row++)
             {
                 for(int col=0; col<3; col++)
@@ -61,7 +62,7 @@ namespace HelloWorld
                     if(row == 0){
                         // ヘッダ
                         gfx.DrawRectangle(singlePen, headerBrush, gridRect);
-                        gfx.DrawString($ヘッダ", gridFont, XBrushes.White, gridRect, XStringFormats.Center);
+                        gfx.DrawString($"ヘッダ", gridFont, XBrushes.White, gridRect, XStringFormats.Center);
                     }
                     else{
                         // データ
