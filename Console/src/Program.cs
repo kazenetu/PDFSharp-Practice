@@ -54,6 +54,8 @@ namespace HelloWorld
             // 表形式描画確認
             var singlePen = new XPen(XColors.Gray, 1);
             var headerBrush = XBrushes.Blue;
+            // 日本語フォント設定
+            var gridFont = new XFont("Gen Shin Gothic", 10, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
             for(int row=0; row<3; row++)
             {
                 for(int col=0; col<3; col++)
