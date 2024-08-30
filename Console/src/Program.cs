@@ -57,8 +57,16 @@ namespace HelloWorld
             {
                 for(int col=0; col<3; col++)
                 {
-                    // 矩形描画
-                    gfx.DrawRectangle(singlePen, new XRect(10+col*80,250+row*40,80,40));
+                    var gridRect =  new XRect(10+col*80,250+row*40,80,40);
+                    if(row == 0){
+                        // ヘッダ
+                        gfx.DrawRectangle(singlePen, headerBrush, gridRect);
+                        gfx.DrawString($ヘッダ", gridFont, XBrushes.White, gridRect, XStringFormats.Center);
+                    }
+                    else{
+                        // データ
+                        gfx.DrawRectangle(singlePen, gridRect);
+                        tf.DrawString($"データ{row},{col}", gridFont, XBrushes.Black, gridRect, XStringFormats.TopLeft);
                 }
             }
 
