@@ -56,24 +56,32 @@ namespace HelloWorld
             var headerBrush = XBrushes.Blue;
             // 日本語フォント設定
             var gridFont = new XFont("Gen Shin Gothic", 10, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
-
-            var headerNames = new List<string>{"A","B","C"};
+            var headerNames = new List<string> {"No.","製品名","単価","金額"};
+            var headerWidth = new List<int> { 50, 300 , 80 ,150};
+            var y = 250;
             for(int row=0; row<3; row++)
             {
-                for(int col=0; col<3; col++)
+                var addY = 0;
+                var x = 5;
+                for(int col=0; col < headerWidth.Count; col++)
                 {
-                    var gridRect =  new XRect(10+col*80,250+row*40,80,40);
+                    var gridRect =  new XRect(x, y ,headerWidth[col], 40);
+                    addY = 40;
                     if(row == 0){
                         // ヘッダ
+                        gridRect.Height = 20;
+                        addY = 20;
                         gfx.DrawRectangle(singlePen, headerBrush, gridRect);
-                        gfx.DrawString($"ヘッダ{headerNames[col]}", gridFont, XBrushes.White, gridRect, XStringFormats.Center);
+                        gfx.DrawString($"{headerNames[col]}", gridFont, XBrushes.White, gridRect, XStringFormats.Center);
                     }
                     else{
                         // データ
                         gfx.DrawRectangle(singlePen, gridRect);
                         tf.DrawString($"データ{row},{col}", gridFont, XBrushes.Black, gridRect, XStringFormats.TopLeft);
                     }
+                    x += headerWidth[col];
                 }
+                y += addY;
             }
 
 
