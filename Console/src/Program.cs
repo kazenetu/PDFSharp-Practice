@@ -57,12 +57,13 @@ namespace HelloWorld
             // 日本語フォント設定
             var gridFont = new XFont("Gen Shin Gothic", 10, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
             var headerNames = new List<string> {"No.","製品名","単価","金額"};
-            var headerWidth = new List<int> { 50, 300 , 80 ,150};
+            var headerWidth = new List<int> { 50, 250 , 80 ,150};
+            var startX = (((int)page.Width.Value) - headerWidth.Sum()) /2;
             var y = 250;
             for(int row=0; row<3; row++)
             {
                 var addY = 0;
-                var x = 5;
+                var x = startX;
                 for(int col=0; col < headerWidth.Count; col++)
                 {
                     var gridRect =  new XRect(x, y ,headerWidth[col], 40);
