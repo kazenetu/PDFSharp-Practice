@@ -38,7 +38,7 @@ namespace HelloWorld
             // 矩形設定
             var width = page.Width.Point;
             var height = page.Height.Point;
-            var rect = new XRect(100,100,150,100);
+            var rect = new XRect((width -200)/2,10,200,30);
 
             // 矩形描画
             gfx.DrawRectangle(pen, rect);
@@ -49,7 +49,7 @@ namespace HelloWorld
             rect.Height -= 5;
             rect.Width -= 5;
             var tf = new XTextFormatter(gfx);
-            tf.DrawString("こんにちわ。\nPDFsharp!", font, XBrushes.Black, rect, XStringFormats.TopLeft);
+            gfx.DrawString("注文書", font, XBrushes.Black, rect, XStringFormats.Center);
 
             // 表形式描画確認
             var singlePen = new XPen(XColors.Gray, 1);
