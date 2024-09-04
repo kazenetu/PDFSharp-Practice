@@ -38,7 +38,7 @@ namespace HelloWorld
             // 矩形設定
             var width = page.Width.Point;
             var height = page.Height.Point;
-            var rect = new XRect((width -200)/2,10,200,30);
+            var rect = new XRect((width -200)/2,10,200,40);
 
             // 矩形描画
             gfx.DrawRectangle(pen, rect);
@@ -59,7 +59,7 @@ namespace HelloWorld
             var headerNames = new List<string> {"No.","製品名","単価","金額"};
             var headerWidth = new List<int> { 50, 250 , 80 ,150};
             var startX = (((int)page.Width.Value) - headerWidth.Sum()) /2;
-            var y = 250;
+            var y = 100;
             for(int row=0; row<3; row++)
             {
                 var addY = 0;
