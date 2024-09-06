@@ -90,5 +90,15 @@ namespace HelloWorld
             var fullName = PdfFileUtility.GetTempPdfFullFileName($"HelloWorld_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
             document.Save(fullName);
         }
+
+        /// <summary>
+        /// 注文情報
+        /// </summary>
+        /// <param name="No">No.</param>
+        /// <param name="ProductName">製品名</param>
+        /// <param name="unitPrice">単価</param>
+        /// <param name="Qty">数量</param>
+        /// <param name="TotalPrice">金額</param>
+        public record Order(int No, string ProductName, decimal unitPrice, decimal Qty, decimal TotalPrice);
     }
 }
