@@ -92,6 +92,32 @@ namespace HelloWorld
         }
 
         /// <summary>
+        /// カラム番号によって文字列を返す
+        /// </summary>
+        /// <param name="order">注文情報</param>
+        /// <param name="colIndex">カラム番号</param>
+        /// <returns>対象の文字列</returns>
+        public static string GetString(Order order, int colIndex)
+        {
+            switch(colIndex)
+            {
+                case 0:
+                    return order.No.ToString();
+                case 1:
+                    return order.ProductName;
+                case 2:
+                    return order.unitPrice.ToString("C");
+                case 3:
+                    return order.Qty.ToString("#,#");
+                case 4 :
+                    return order.TotalPrice.ToString("C");
+                default:
+                        return string.Empty;
+            };
+        }
+
+
+        /// <summary>
         /// 注文情報
         /// </summary>
         /// <param name="No">No.</param>
