@@ -58,6 +58,16 @@ namespace HelloWorld
             var gridFont = new XFont("Gen Shin Gothic", 10, XFontStyleEx.BoldItalic, new XPdfFontOptions(PdfFontEmbedding.EmbedCompleteFontFile));
             var headerNames = new List<string> {"No.","製品名","単価","数量","金額"};
             var headerWidth = new List<int> { 25, 250, 80, 50, 150 };
+
+            // 注文データサンプル
+            List<Order> Orders = new List<Order>()
+            {
+                new Order(1,"商品A",100,1,100),
+                new Order(2,"商品B",1000,3,3000),
+                new Order(3,"商品C",200,1,200),
+                new Order(4,"商品D",500,10,5000),
+            };
+
             var startX = (((int)page.Width.Value) - headerWidth.Sum()) /2;
             var y = 100;
             for(int row=0; row<3; row++)
