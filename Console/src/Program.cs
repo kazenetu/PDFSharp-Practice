@@ -70,26 +70,42 @@ namespace HelloWorld
 
             var startX = (((int)page.Width.Value) - headerWidth.Sum()) /2;
             var y = 100;
-            for(int row=0; row<3; row++)
+            var isDrawHeader = false;
+            foreach (var order in Orders)
             {
                 var addY = 0;
+
+                // 描画開始Xを設定
                 var x = startX;
-                for(int col=0; col < headerWidth.Count; col++)
+
+                // ヘッダ
+                if(!isDrawHeader)
                 {
-                    var gridRect =  new XRect(x, y ,headerWidth[col], 40);
-                    addY = 40;
-                    if(row == 0){
-                        // ヘッダ
-                        gridRect.Height = 20;
-                        addY = 20;
+                    addY = 20;
+                    // ヘッダ
+                    for (int col = 0; col < headerWidth.Count; col++)
+                    {
+                        var gridRect = new XRect(x, y, headerWidth[col], 20);
                         gfx.DrawRectangle(singlePen, headerBrush, gridRect);
                         gfx.DrawString($"{headerNames[col]}", gridFont, XBrushes.White, gridRect, XStringFormats.Center);
+                        x += headerWidth[col];
                     }
-                    else{
-                        // データ
-                        gfx.DrawRectangle(singlePen, gridRect);
-                        tf.DrawString($"データ{row},{col}", gridFont, XBrushes.Black, gridRect, XStringFormats.TopLeft);
-                    }
+                    y += addY;
+                    isDrawHeader = true;
+
+                    // Xの初期化
+                    x = startX;
+                }
+
+                // データ
+                addY = 20;
+                for (int col = 0; col < headerWidth.Count; col++)
+                {
+                    var gridRect = new XRect(x, y, headerWidth[col], 20);
+                    gfx.DrawRectangle(singlePen, gridRect);
+                    gridRect.X += 5;
+                    gridRect.Width -= 10;
+                    gfx.DrawString(GetString(order,col), gridFont, XBrushes.Black, gridRect, XStringFormats.Center);
                     x += headerWidth[col];
                 }
                 y += addY;
