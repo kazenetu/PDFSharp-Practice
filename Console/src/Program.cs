@@ -142,6 +142,39 @@ namespace HelloWorld
             };
         }
 
+        /// <summary>
+        /// カラム番号によってXStringFormatsを返す
+        /// </summary>
+        /// <param name="order">注文情報</param>
+        /// <returns>XStringFormats</returns>
+        public static XStringFormat GetAlignment(int colIndex)
+        {
+            switch(colIndex)
+            {
+                case 0:
+                    var no0 = XStringFormats.Center;
+                    no0.Alignment = XStringAlignment.Far;
+                    return no0;
+                case 1:
+                    var no1 = XStringFormats.Center;
+                    no1.Alignment = XStringAlignment.Near;
+                    return no1;
+                case 2:
+                    var no2 = XStringFormats.Center;
+                    no2.Alignment = XStringAlignment.Far;
+                    return no2;
+                case 3:
+                    var no3 = XStringFormats.Center;
+                    no3.Alignment = XStringAlignment.Far;
+                    return no3;
+                case 4 :
+                    var no4 = XStringFormats.Center;
+                    no4.Alignment = XStringAlignment.Far;
+                    return no4;
+                default:
+                    return XStringFormats.TopLeft;
+            };
+        }
 
         /// <summary>
         /// 注文情報
