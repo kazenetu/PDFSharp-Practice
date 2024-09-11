@@ -105,7 +105,7 @@ namespace HelloWorld
                     gfx.DrawRectangle(singlePen, gridRect);
                     gridRect.X += 5;
                     gridRect.Width -= 10;
-                    gfx.DrawString(GetString(order,col), gridFont, XBrushes.Black, gridRect, XStringFormats.Center);
+                    gfx.DrawString(GetString(order,col), gridFont, XBrushes.Black, gridRect, GetAlignment(col));
                     x += headerWidth[col];
                 }
                 y += addY;
