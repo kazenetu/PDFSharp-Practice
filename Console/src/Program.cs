@@ -143,6 +143,27 @@ namespace HelloWorld
         }
 
         /// <summary>
+        /// カラム番号によって文字列を返す
+        /// </summary>
+        /// <param name="orders">注文情報リスト</param>
+        /// <param name="colIndex">カラム番号</param>
+        /// <returns>対象の文字列</returns>
+        public static string GetTotalString(List<Order> orders, int colIndex)
+        {
+            switch(colIndex)
+            {
+                case 2:
+                    return orders.Sum(order => order.unitPrice).ToString("C");
+                case 3:
+                    return orders.Sum(order => order.Qty).ToString("#,#");
+                case 4 :
+                    return orders.Sum(order => order.TotalPrice).ToString("C");
+                default:
+                        return string.Empty;
+            };
+        }
+
+        /// <summary>
         /// カラム番号によってXStringFormatsを返す
         /// </summary>
         /// <param name="order">注文情報</param>
