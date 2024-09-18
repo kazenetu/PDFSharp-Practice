@@ -1,5 +1,7 @@
-﻿namespace PdfLibrary;
-public class Class1
+﻿namespace PdfLibrary
 {
+    public class Class1
+    {
 
+    }
 }
