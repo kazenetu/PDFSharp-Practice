@@ -14,4 +14,7 @@
     <Compile Include="../src/JapaneseFontResolver.cs" />
     <EmbeddedResource Include="../../assets/GenShinGothic-Monospace-Medium.ttf" />  
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../PdfLibrary/PdfLibrary.csproj" />
+  </ItemGroup>
 </Project>
