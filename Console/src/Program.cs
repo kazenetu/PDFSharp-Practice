@@ -2,6 +2,7 @@
 using PdfSharp.Pdf;
 using PdfSharp.Quality;
 using PdfSharp.Drawing.Layout;
+using PdfLibrary;
 
 namespace HelloWorld
 {
@@ -15,7 +16,7 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             // フォントリゾルバーのグローバル登録
-            PdfSharp.Fonts.GlobalFontSettings.FontResolver = new JapaneseFontResolver();
+            PdfLibrary.Utilites.Utility.SetJapaneseFontResolver();
 
             // Create a new PDF document.
             var document = new PdfDocument();
