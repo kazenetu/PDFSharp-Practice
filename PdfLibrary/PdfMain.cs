@@ -1,6 +1,6 @@
 ﻿namespace PdfLibrary
 {
-    public class Class1
+    public class PdfMain
     {
 
     }
