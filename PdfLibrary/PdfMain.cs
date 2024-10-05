@@ -7,6 +7,15 @@ using System.IO;
 namespace PdfLibrary
 {
     /// <summary>
+    /// レイアウト種別
+    /// </summary>
+    public enum LayoutKinds
+    {
+        None,
+        Order,
+    }
+
+    /// <summary>
     /// PdfLibraryエントリクラス
     /// </summary>
     public class PdfMain
