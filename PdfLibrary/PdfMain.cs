@@ -1,4 +1,5 @@
 ﻿using PdfLibrary.Interfaces;
+using PdfLibrary.Layout;
 using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace PdfLibrary
         /// <summary>
         /// 帳票レイアウト
         /// </summary>
-        private ILayout _layout;
+        private ILayout? _layout = null;
 
         /// <summary>
         /// 出力用データリスト
@@ -34,6 +35,27 @@ namespace PdfLibrary
         /// PDFsharpドキュメントインスタンス
         /// </summary>
         private PdfDocument _document;
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="layoutKind">帳票レイアウト種別</param>
+        /// <param name="dataList">出力用データリスト</param>
+        public PdfMain(LayoutKinds layoutKind, List<IData> dataList)
+        {
+            switch (layoutKind)
+            {
+                case LayoutKinds.Order:
+                    _layout = new OrderLayout();
+                break;
+                
+                default:
+                    throw new Exception("帳票レイアウトが指定されていません");
+            }
+            _dataList = dataList;
+
+            _document = new PdfDocument();
+        }
 
         /// <summary>
         /// コンストラクタ
@@ -54,6 +76,9 @@ namespace PdfLibrary
         /// <param name="stream">出力用Stream</param>
         public void Create(Stream stream)
         {
+            if(_layout is null)
+                throw new Exception("帳票レイアウトが指定されていません。");
+
             //帳票レイアウト書き込み
             if(!_layout.Create(_document, _dataList))
                 throw new Exception("帳票レイアウト失敗");
@@ -61,6 +86,5 @@ namespace PdfLibrary
             // 出力用Streamに出力
             _document.Save(stream);
         }
-
     }
 }
