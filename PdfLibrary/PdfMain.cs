@@ -4,6 +4,7 @@ using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace PdfLibrary
 {
@@ -29,12 +30,12 @@ namespace PdfLibrary
         /// <summary>
         /// 出力用データリスト
         /// </summary>
-        private List<IData> _dataList;
+        private List<IData>? _dataList = null;
 
         /// <summary>
         /// PDFsharpドキュメントインスタンス
         /// </summary>
-        private PdfDocument _document;
+        private PdfDocument? _document = null;
 
         /// <summary>
         /// コンストラクタ
@@ -46,15 +47,12 @@ namespace PdfLibrary
             switch (layoutKind)
             {
                 case LayoutKinds.Order:
-                    _layout = new OrderLayout();
+                    SetParams(new OrderLayout(), dataList);
                 break;
                 
                 default:
                     throw new Exception("帳票レイアウトが指定されていません");
             }
-            _dataList = dataList;
-
-            _document = new PdfDocument();
         }
 
         /// <summary>
@@ -64,10 +62,7 @@ namespace PdfLibrary
         /// <param name="dataList">出力用データリスト</param>
         public PdfMain(ILayout layout, List<IData> dataList)
         {
-            _layout = layout;
-            _dataList = dataList;
-
-            _document = new PdfDocument();
+            SetParams(layout, dataList);
         }
 
         /// <summary>
@@ -79,12 +74,31 @@ namespace PdfLibrary
             if(_layout is null)
                 throw new Exception("帳票レイアウトが指定されていません。");
 
+            if(_dataList is null || !_dataList.Any())
+                throw new Exception("出力用データリストが指定されていません。");
+
+            if(_document is null)
+                throw new Exception("ドキュメントが生成されていません。");
+
             //帳票レイアウト書き込み
             if(!_layout.Create(_document, _dataList))
                 throw new Exception("帳票レイアウト失敗");
 
             // 出力用Streamに出力
             _document.Save(stream);
+        }
+
+        /// <summary>
+        /// パラメータ設定
+        /// </summary>
+        /// <param name="layout">帳票レイアウト</param>
+        /// <param name="dataList">出力用データリスト</param>
+        private void SetParams(ILayout? layout, List<IData> dataList)
+        {
+            _layout = layout;
+            _dataList = dataList;
+
+            _document = new PdfDocument();
         }
     }
 }
