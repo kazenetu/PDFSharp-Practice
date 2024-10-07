@@ -1,6 +1,5 @@
 ﻿using PdfLibrary;
 using PdfLibrary.Interfaces;
-using PdfLibrary.Layout;
 using PdfLibrary.DataLists;
 
 namespace HelloWorld
@@ -26,7 +25,7 @@ namespace HelloWorld
                 new Order(no++,"商品C",200,1),
                 new Order(no++,"商品D",500,10),
             };
-            var pdfMain = new PdfMain(new OrderLayout(), orders);
+            var pdfMain = new PdfMain(LayoutKinds.Order, orders);
 
             //ファイル作成
             var fullName = PdfLibrary.Utilites.Utility.GetFullPath($"OrderReport_{DateTime.Now.ToString("yyyyMMddHHmmss")}");
