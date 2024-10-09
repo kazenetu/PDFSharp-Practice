@@ -3,17 +3,17 @@ using System;
 using System.IO;
 using System.Reflection;
 
-namespace HelloWorld
+namespace PdfLibrary.Utilites
 {
     /// <summary>
     /// 日本語フォントのためのフォントリゾルバー
     /// </summary>
-    public class JapaneseFontResolver : IFontResolver
+    class JapaneseFontResolver : IFontResolver
     {
         /// <summary>
         /// 源真ゴシック（ http://jikasei.me/font/genshin/）
         /// </summary>
-        private static readonly string GEN_SHIN_GOTHIC_MEDIUM_TTF = "console.GenShinGothic-Monospace-Medium.ttf";
+        private static readonly string GEN_SHIN_GOTHIC_MEDIUM_TTF = "PdfLibrary.GenShinGothic-Monospace-Medium.ttf";
 
         /// <summary>
         /// フォントデータ取得
