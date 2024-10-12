@@ -15,4 +15,7 @@
     </Content>
     <EmbeddedResource Include="../../assets/GenShinGothic-Monospace-Medium.ttf" />  
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../PdfLibrary/PdfLibrary.csproj" />
+  </ItemGroup>
 </Project>

@@ -14,5 +14,8 @@
       <Link>%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Content>
     <EmbeddedResource Include="../../assets/GenShinGothic-Monospace-Medium.ttf" />  
-  </ItemGroup>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="../../PdfLibrary/PdfLibrary.csproj" />
+    </ItemGroup>
 </Project>
