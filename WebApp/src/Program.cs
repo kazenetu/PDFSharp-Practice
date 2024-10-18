@@ -1,11 +1,11 @@
-using PdfSharp.Pdf;
 using webapp.Utils;
 using Microsoft.AspNetCore.StaticFiles;
+using PdfLibrary;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // フォントリゾルバーのグローバル登録
-PdfSharp.Fonts.GlobalFontSettings.FontResolver = new JapaneseFontResolver();
+PdfLibrary.Utilites.Utility.SetJapaneseFontResolver();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
